@@ -1,391 +1,613 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nishchal Kumar Singh</title>
+    <meta name="description" content="Portfolio of Nishchal Kumar Singh, B.Tech ECE student at IIT (ISM) Dhanbad specializing in Software Engineering, AI/ML, and Agentic Systems.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card-hover: #243447;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #3b82f6;
+            --accent-hover: #60a5fa;
+            --accent-subtle: rgba(59, 130, 246, 0.1);
+            --border: #334155;
+            --border-hover: #3b82f6;
+            --success: #10b981;
+            --gold: #f59e0b;
+        }
 
-    <!-- Site Info -->
-    <title>Nishchal Kumar Singh - Portfolio</title>
-    <meta name="description" content="Nishchal Kumar Singh - I am a B.Tech student at IIT (ISM) Dhanbad with a strong foundation in programming, machine learning, and open-source development. I actively participate in competitive programming and hackathons, and I&#39;m passionate about AI, algorithms, and solving real-world problems through technology.">
-    <meta name="author" content="Nishchal Kumar Singh">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Open Graph Tags: The title of the page for social media sharing. It can match the title tag or be more descriptive. -->
-    <meta property="og:title" content="Nishchal Kumar Singh">
+        html {
+            scroll-behavior: smooth;
+        }
 
-    <!-- Open Graph Tags: Typically set to "website" for static sites or "article" for content-heavy pages. -->
-    <meta property="og:type" content="website">
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    <!-- Open Graph Tags: The URL of the page, used to ensure link previews resolve to the correct page. -->
-    <meta property="og:url" content="127.0.0.1:5500/index.html">
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
-    <!-- Open Graph Tags: URL of an image that represents the page. Useful for link previews. -->
-    <meta property="og:image" content="127.0.0.1:5500/img/my_image.jpg">
+        /* ── Header / Hero ── */
+        header {
+            padding: 6rem 0 4rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 3rem;
+        }
 
-    <!-- Open Graph Tags: Provides an alternative text for the image to improve accessibility. -->
-    <meta property="og:image:alt" content="Nishchal Kumar Singh Profile Image">
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
 
-    <!-- Preconnect for Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        .header-left { flex: 1; min-width: 280px; }
 
-    <!-- Custom Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
-          rel="stylesheet">
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.05em;
+        }
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="css/modern_normalize.css" />
-    <link rel="stylesheet" href="css/html5bp.css">
-    <link rel="stylesheet" href="css/main.css">
+        .subtitle {
+            font-size: 1.15rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
 
-    <!-- Set a theme color that matches your website's primary color -->
-    <meta name="theme-color" content="#fafafa">
+        .bio {
+            color: var(--text-muted);
+            max-width: 620px;
+            font-size: 1rem;
+            margin-bottom: 1.75rem;
+            line-height: 1.75;
+        }
 
-    <!-- Favicon for all browsers -->
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.25rem;
+        }
 
-    <!-- Apple touch icon for iOS devices -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+        .social-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 0.3rem 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            transition: all 0.2s;
+        }
 
-    <!-- Web app manifest for Progressive Web Apps -->
-    <link rel="manifest" href="/site.webmanifest">
+        .social-links a:hover {
+            color: var(--accent-hover);
+            border-color: var(--accent-hover);
+            background: var(--accent-subtle);
+        }
 
-    <!-- Content Security Policy: Uncomment to enhance security by restricting where content can be loaded from (useful for preventing certain attacks like XSS). Update if adding external sources (e.g., Google Fonts, Bootstrap CDN, analytics, etc). -->
-    <!-- <meta http-equiv="Content-Security-Policy" content=" default-src 'self'; script-src 'self' code.jquery.com; style-src 'self' fonts.googleapis.com; font-src fonts.gstatic.com; img-src 'self' images.examplecdn.com; "> -->
-  </head>
+        /* Quick stats in header */
+        .header-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1.5rem 2rem;
+            min-width: 200px;
+            flex-shrink: 0;
+        }
 
-  <body>
-    <header class="page-header">
-      <div class="container">
-        <div class="header-top flex-responsive">
-          
-            <img class="header-image"
-                 width="256"
-                 height="256"
-                 src="img/my_image.jpg"
-                 alt="Nishchal Kumar Singh Profile Image" />
-          
-          <div class="header-info">
-            <h1>Nishchal Kumar Singh</h1>
-            <h2 class="header-label">Aspiring Software Developer &amp; ML Enthusiast</h2>
-            
-              <address>
-                <ul class="inline-list flex-responsive">
-                  
-                    <li>
-                      <a href="mailto:nishchalsingh9a@gmail.com">nishchalsingh9a@gmail.com</a>
-                    </li>
-                  
-                  
-                    <li>
-                      <a href="tel:++91 7479869929">+91 7479869929</a>
-                    </li>
-                  
-                  <li>Ranchi, Jharkhand, India</li>
-                </ul>
-              </address>
-            
-            
-              <ul class="inline-list flex-responsive">
-                
-                  <li>
-                    <a href="https://github.com/Nishchal-29"
-                       rel="noopener noreferrer"
-                       aria-label="GitHub"
-                       class="link-with-icon">
-                      <svg aria-hidden="true"
-     xmlns="http://www.w3.org/2000/svg"
-     role="img"
-     width="16"
-     height="16"
-     fill="currentColor"
-     class="bi bi-github"
-     viewBox="0 0 16 16">
-  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
-</svg>
+        .stat-item { text-align: center; }
 
-                      GitHub
-                    </a>
-                  </li>
-                
-                  <li>
-                    <a href="https://www.linkedin.com/in/nishchal-singh-935161315/"
-                       rel="noopener noreferrer"
-                       aria-label="LinkedIn"
-                       class="link-with-icon">
-                      <svg aria-hidden="true"
-     xmlns="http://www.w3.org/2000/svg"
-     role="img"
-     width="16"
-     height="16"
-     fill="currentColor"
-     class="bi bi-linkedin"
-     viewBox="0 0 16 16">
-  <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
-</svg>
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            font-family: 'Fira Code', monospace;
+            display: block;
+        }
 
-                      LinkedIn
-                    </a>
-                  </li>
-                
-                  <li>
-                    <a href="https://codeforces.com/profile/nishchal_318"
-                       rel="noopener noreferrer"
-                       aria-label="Codeforces"
-                       class="link-with-icon">
-                      <svg aria-hidden="true"
-     xmlns="http://www.w3.org/2000/svg"
-     role="img"
-     width="16"
-     height="16"
-     fill="currentColor"
-     class="bi bi-globe-americas"
-     viewBox="0 0 16 16">
-  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
-</svg>
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
 
-                      Codeforces
-                    </a>
-                  </li>
-                
-                  <li>
-                    <a href="https://www.codechef.com/users/nishchal_318"
-                       rel="noopener noreferrer"
-                       aria-label="CodeChef"
-                       class="link-with-icon">
-                      <svg aria-hidden="true"
-     xmlns="http://www.w3.org/2000/svg"
-     role="img"
-     width="16"
-     height="16"
-     fill="currentColor"
-     class="bi bi-globe-americas"
-     viewBox="0 0 16 16">
-  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
-</svg>
+        .stat-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+        }
 
-                      CodeChef
-                    </a>
-                  </li>
-                
-                  <li>
-                    <a href="https://leetcode.com/u/Nishchal_318"
-                       rel="noopener noreferrer"
-                       aria-label="LeetCode"
-                       class="link-with-icon">
-                      <svg aria-hidden="true"
-     xmlns="http://www.w3.org/2000/svg"
-     role="img"
-     width="16"
-     height="16"
-     fill="currentColor"
-     class="bi bi-globe-americas"
-     viewBox="0 0 16 16">
-  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
-</svg>
+        /* ── Layout Grid ── */
+        .layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            padding-bottom: 6rem;
+        }
 
-                      LeetCode
-                    </a>
-                  </li>
-                
-                  <li>
-                    <a href="https://www.kaggle.com/nishchal29"
-                       rel="noopener noreferrer"
-                       aria-label="Kaggle"
-                       class="link-with-icon">
-                      <svg aria-hidden="true"
-     xmlns="http://www.w3.org/2000/svg"
-     role="img"
-     width="16"
-     height="16"
-     fill="currentColor"
-     class="bi bi-globe-americas"
-     viewBox="0 0 16 16">
-  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
-</svg>
+        @media (max-width: 850px) {
+            .layout { grid-template-columns: 1fr; }
+            h1 { font-size: 2.2rem; }
+            .header-stats { flex-direction: row; flex-wrap: wrap; justify-content: space-around; min-width: unset; width: 100%; }
+        }
 
-                      Kaggle
-                    </a>
-                  </li>
-                
-              </ul>
-            
-            <p class="header-summary">I am a B.Tech student at IIT (ISM) Dhanbad with a strong foundation in programming, machine learning, and open-source development. I actively participate in competitive programming and hackathons, and I&#39;m passionate about AI, algorithms, and solving real-world problems through technology.</p>
-          </div>
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            letter-spacing: -0.02em;
+        }
+
+        h2::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+            margin-left: 1rem;
+        }
+
+        /* ── Skills ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 600px) {
+            .skills-grid { grid-template-columns: 1fr; }
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1rem 1.25rem;
+            transition: border-color 0.2s;
+        }
+
+        .skill-category:hover { border-color: var(--accent); }
+
+        .skill-category h3 {
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 600;
+        }
+
+        .skill-category p {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        /* ── Project Cards ── */
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-bottom: 1.75rem;
+            transition: transform 0.2s, border-color 0.2s, background 0.2s;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            background: var(--bg-card-hover);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .project-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 0.6rem;
+            flex-shrink: 0;
+        }
+
+        .project-links a {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 0.2rem 0.6rem;
+            border: 1px solid var(--border);
+            border-radius: 0.25rem;
+            transition: all 0.2s;
+        }
+
+        .project-links a:hover {
+            color: var(--accent-hover);
+            border-color: var(--accent-hover);
+        }
+
+        .project-tech {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-bottom: 1.25rem;
+            background: rgba(59, 130, 246, 0.08);
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 0.25rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .project-bullets {
+            list-style-type: none;
+        }
+
+        .project-bullets li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.65rem;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.65;
+        }
+
+        .project-bullets li:last-child { margin-bottom: 0; }
+
+        .project-bullets li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .project-bullets li strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        /* ── Sidebar ── */
+        .sidebar-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .sidebar-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1rem 1.25rem;
+            margin-bottom: 0.75rem;
+            transition: border-color 0.2s;
+        }
+
+        .sidebar-item:hover { border-color: var(--accent); }
+
+        .sidebar-item h4 {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 0.2rem;
+            font-weight: 600;
+        }
+
+        .sidebar-item .meta {
+            font-size: 0.82rem;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+        }
+
+        .sidebar-item p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+        .sidebar-item p a {
+            color: var(--accent-hover);
+            text-decoration: none;
+        }
+
+        .sidebar-item p a:hover {
+            text-decoration: underline;
+        }
+
+        /* Badge for CGPA */
+        .badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.12);
+            color: var(--success);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 0.25rem;
+            font-size: 0.78rem;
+            font-family: 'Fira Code', monospace;
+            font-weight: 600;
+            padding: 0.1rem 0.45rem;
+            margin-left: 0.4rem;
+            vertical-align: middle;
+        }
+
+        .badge-gold {
+            background: rgba(245, 158, 11, 0.12);
+            color: var(--gold);
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        footer a {
+            color: var(--accent-hover);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <div class="header-left">
+                    <h1>Nishchal Kumar Singh</h1>
+                    <div class="subtitle">Software Engineering &amp; AI/ML Enthusiast · IIT (ISM) Dhanbad</div>
+                    <p class="bio">B.Tech in Electronics &amp; Communication Engineering. Passionate about building highly optimised Agentic AI systems, scalable backend architectures, and solving complex algorithmic challenges.</p>
+                    <div class="social-links">
+                        <a href="mailto:nishchalsingh9a@gmail.com">Email</a>
+                        <a href="https://github.com/Nishchal-29" target="_blank" rel="noopener">GitHub</a>
+                        <a href="https://www.linkedin.com/in/nishchal-singh-935161315/" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="https://www.kaggle.com/nishchal29" target="_blank" rel="noopener">Kaggle</a>
+                        <a href="https://leetcode.com/u/Nishchal_318/" target="_blank" rel="noopener">Leetcode</a>
+                        <a href="https://codeforces.com/profile/nishchal_318" target="_blank" rel="noopener">Codeforces</a>
+                        <a href="https://www.codechef.com/users/nishchal_318" target="_blank" rel="noopener">CodeChef</a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </header>
 
-    <div class="page-content">
-      <div class="container">
+    <div class="container layout">
+        
         <main>
-          
 
-          
-            <section>
-              <h2 class="section-heading">Projects</h2>
-              
-                <section>
-                  <h3>
-                    
-                      <a href="https://github.com/Nishchal-29/ML-Library-WOC-">Machine Learning Library from Scratch</a>
-                    
-                  </h3>
-                  <p>Implemented core ML algorithms from scratch, enhancing my understanding of data science foundations.</p>
-                  
-                    <ul>
-                      <li>Built Linear &amp; Logistic Regression, KNN, Decision Trees, K-Means, and N-layer Neural Networks</li><li>Used only NumPy for implementation, no high-level ML libraries</li><li>Tested and documented on Google Colab for reproducibility</li>
-                    </ul>
-                  
-                  
-                </section>
-              
-                <section>
-                  <h3>
-                    
-                      <a href="https://github.com/Nishchal-29/SmartMail">SmartMail - RAG-Powered Email Assistant</a>
-                    
-                  </h3>
-                  <p>Automated email responses using Retrieval-Augmented Generation (RAG).</p>
-                  
-                    <ul>
-                      <li>Built using Python and LLM integration</li><li>Extracts context from email chains and responds smartly</li><li>Ideal for smart inbox automation</li>
-                    </ul>
-                  
-                  
-                </section>
-
-                <section>
-                  <h3>
-                    
-                      <a href="https://github.com/Nishchal-29/digit-classifier-from-scratch">MNIST Digit Classifier from scratch</a>
-                    
-                  </h3>
-                  <p>Implemented a digit classification system from scratch to achieve a 97.2% accuracy on test set.</p>
-                  
-                    <ul>
-                      <li>Modularized each components into separate files to ensure reusability.</li><li>Model architecture with optimizers are plug and play.</li><li>The NeuralNetwork class dynamically chains all layers and performs full forward and backward propagation from sratch.</li>
-                    </ul>
-                  
-                  
-                </section>
-
-                <section>
-                  <h3>
-                    
-                      <a href="https://github.com/Nishchal-29/image-caption-generator">Image Caption Generator</a>
-                    
-                  </h3>
-                  <p>Developed a deep-learning model and deployed it as a public API that generates natural-language captions from images.</p>
-                  
-                    <ul>
-                      <li>Built an image captioning pipeline featuring MobileNet-based encoders with a custom Bahdanau attention layer, improving contextual relevance.</li><li>Implemented both greedy and beam search decoding, offering a spectrum of speed vs. caption quality trade-offs.</li><li>Exposed model capabilities through a Flask-based REST API, enabling image upload and caption retrieval through dynamic decoding mode selection.</li>
-                    </ul>
-                  
-                  
-                </section>
-              
+            <!-- ── Technical Skills ── -->
+            <section id="skills">
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Languages</h3>
+                        <p>Python, C/C++, JavaScript, SQL</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Backend</h3>
+                        <p>FastAPI, Flask, REST API, Node.js, PostgreSQL, MongoDB</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Agentic &amp; Generative AI</h3>
+                        <p>LangGraph, LlamaIndex, RAG, ChromaDB, CrewAI</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Machine Learning</h3>
+                        <p>PyTorch, TensorFlow, Scikit-learn, NLP, Transformers, LLM Fine-tuning (QLoRA, GRPO)</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Tools &amp; DevOps</h3>
+                        <p>Git, Docker, Postman, Linux (WSL), Google Colab, Hugging Face</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Core CS</h3>
+                        <p>DSA, OOP, DBMS, Operating Systems, Computer Networks</p>
+                    </div>
+                </div>
             </section>
-          
 
-          
+            <!-- ── Projects ── -->
+            <section id="projects">
+                <h2>Key Projects</h2>
 
-          
+                <article class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">Tool-Augmented Reasoning Agent (TARA)</div>
+                        <div class="project-links">
+                            <a href="https://github.com/Nishchal-29/reasoning-llm-agent" target="_blank" rel="noopener">Source Code ↗</a>
+                        </div>
+                    </div>
+                    <div class="project-tech">PyTorch · Unsloth · Hugging Face · Flask · Docker · SymPy</div>
+                    <ul class="project-bullets">
+                        <li>Fine-tuned <strong>Qwen2.5-3B</strong> using <strong>Unsloth 4-bit QLoRA</strong> and <strong>GRPO</strong>, improving GSM8K accuracy from <strong>74.2% → 84.7%</strong> through autonomous error-correction — all on a single 16 GB GPU.</li>
+                        <li>Engineered a <strong>ReAct state machine</strong> generating <strong>17.3K execution-aligned trajectories</strong> via 40K+ live tool executions; achieved a <strong>90% execution success rate</strong> across 8 custom GSM8K metrics.</li>
+                        <li>Designed <strong>verification and reflection rewards</strong> that recovered from initial reasoning failures in <strong>50% of evaluation cases</strong>; deployed as a <strong>Dockerized Flask/Gunicorn</strong> inference service.</li>
+                    </ul>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">LogiBot — AI-Powered Logistics Router</div>
+                        <div class="project-links">
+                            <a href="https://github.com/Nishchal-29/route-optimization-system" target="_blank" rel="noopener">Source Code ↗</a>
+                            <a href="https://route-optimization-frontend-16zh.onrender.com/" target="_blank" rel="noopener">Live Demo ↗</a>
+                        </div>
+                    </div>
+                    <div class="project-tech">FastAPI · React · LangChain · Gemini · Pydantic · PostgreSQL</div>
+                    <ul class="project-bullets">
+                        <li>Engineered an <strong>AI-powered</strong> logistics backend using a custom <strong>Genetic Algorithm</strong> with ORS distance matrices, live traffic &amp; weather APIs to optimise routing sequences <strong>under 2.5 s</strong>.</li>
+                        <li>Architected a <strong>LangChain + Gemini</strong> agentic copilot with <strong>90% tool-selection accuracy</strong>, enabling natural-language parsing, database updates, and dynamic route re-optimisation.</li>
+                        <li>Built a <strong>React.js / Leaflet</strong> frontend with dual-mode <strong>NLP/map input</strong> and a 4-layer traffic heatmap; optimised AI state synchronisation to render <strong>50+ stop routes</strong> smoothly.</li>
+                    </ul>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">Attention-Based Image Caption Generator</div>
+                        <div class="project-links">
+                            <a href="https://github.com/Nishchal-29/image-caption-generator" target="_blank" rel="noopener">Source Code ↗</a>
+                        </div>
+                    </div>
+                    <div class="project-tech">TensorFlow · MobileNet · LSTM · Bahdanau Attention · Flask · Docker</div>
+                    <ul class="project-bullets">
+                        <li>Built an encoder-decoder pipeline using <strong>MobileNet encoders</strong> and custom <strong>Bahdanau attention</strong> layers; achieved a <strong>25% accuracy gain</strong> and <strong>30% reduction in inference time</strong>.</li>
+                        <li>Optimised inference via <strong>beam search</strong> and an eager <strong>TensorFlow graph warm-up</strong>, eliminating cold-start delays and guaranteeing API responses <strong>under 2 s</strong>.</li>
+                        <li>Architected a production-ready <strong>Docker / Gunicorn</strong> deployment using a single-worker multi-threaded config to prevent TF segfaults and enforce a strict <strong>3 GB memory limit</strong>.</li>
+                    </ul>
+                </article>
+
+                <article class="project-card">
+                  <div class="project-header">
+                      <div class="project-title">Machine Learning Library from Scratch</div>
+                      <div class="project-links">
+                          <a href="https://github.com/Nishchal-29/ML-Library-WOC-" target="_blank" rel="noopener">Source Code ↗</a>
+                      </div>
+                  </div>
+                  <div class="project-tech">Python · NumPy · Google Colab</div>
+                  <ul class="project-bullets">
+                      <li>Built <strong>Linear &amp; Logistic Regression, KNN, Decision Trees, K-Means,</strong> and <strong>N-layer Neural Networks</strong> entirely from scratch — zero high-level ML libraries.</li>
+                      <li>Used only <strong>NumPy</strong> for all matrix operations, gradient computations, and model logic, deepening low-level understanding of ML fundamentals.</li>
+                      <li>Tested and documented on <strong>Google Colab</strong> with reproducible notebooks for each algorithm.</li>
+                  </ul>
+              </article>
+
+              <article class="project-card">
+                  <div class="project-header">
+                      <div class="project-title">SmartMail — RAG-Powered Email Assistant</div>
+                      <div class="project-links">
+                          <a href="https://github.com/Nishchal-29/SmartMail" target="_blank" rel="noopener">Source Code ↗</a>
+                      </div>
+                  </div>
+                  <div class="project-tech">Python · RAG · LLM · LangChain</div>
+                  <ul class="project-bullets">
+                      <li>Built an automated email response system using <strong>Retrieval-Augmented Generation (RAG)</strong> to extract context from email chains and generate accurate, on-topic replies.</li>
+                      <li>Integrated <strong>LLM-backed semantic retrieval</strong> to surface relevant prior context before generation, enabling smart inbox automation without manual templates.</li>
+                      <li>Won <strong>1st place among 1300+ participants</strong> at HackFest IIT (ISM) Dhanbad's GoFloww Atom Mail challenge.</li>
+                  </ul>
+              </article>
+
+              <article class="project-card">
+                  <div class="project-header">
+                      <div class="project-title">MNIST Digit Classifier from Scratch</div>
+                      <div class="project-links">
+                          <a href="https://github.com/Nishchal-29/digit-classifier-from-scratch" target="_blank" rel="noopener">Source Code ↗</a>
+                      </div>
+                  </div>
+                  <div class="project-tech">Python · NumPy · Neural Networks</div>
+                  <ul class="project-bullets">
+                      <li>Achieved <strong>97.2% test accuracy</strong> on MNIST by implementing a full neural network — forward pass, backpropagation, and weight updates — entirely from scratch.</li>
+                      <li>Modularised each component (layers, activations, loss functions, optimisers) into <strong>separate, reusable files</strong>; model architecture and optimisers are fully <strong>plug-and-play</strong>.</li>
+                      <li>The <strong>NeuralNetwork class</strong> dynamically chains all layers and performs complete forward and backward propagation without any deep learning framework.</li>
+                  </ul>
+              </article>
+
+            </section>
         </main>
 
-        <!-- Sidebar Section -->
+        <!-- ── Sidebar ── -->
         <aside>
-          
-            <section>
-              <h2 class="section-heading">Education</h2>
-              
-                <section>
-                  <h3>
-                    
-                      <a href="https://www.iitism.ac.in">Indian Institute of Technology (ISM) Dhanbad</a>
-                    
-                  </h3>
-                  <p class="section-label">Dhanbad, Jharkhand</p>
-                  
-                    <h4>Degrees</h4>
-                    <ul>
-                      <li>Bachelor of Technology in Electronics and Communication Engineering</li>
-                    </ul>
-                  
-                  
-                  
-                    <p>
-                      
-                      <span class="block">Cumulative GPA: 9.27</span>
-                      <span class="block">Graduation Date: 2028</span>
-                    </p>
-                  
-                </section>
-              
-                <section>
-                  <h3>
-                    
-                      <a href="https://davranchi.com">SR DAV Public School, Pundag, Ranchi</a>
-                    
-                  </h3>
-                  <p class="section-label">Ranchi, Jharkhand</p>
-                  
-                    <h4>Degrees</h4>
-                    <ul>
-                      <li>CBSE Class XII – 97.4%</li><li>CBSE Class X – 95.8%</li>
-                    </ul>
-                  
-                  
-                  
-                    <p>
-                      
-                      
-                      <span class="block">Graduation Date: 2024</span>
-                    </p>
-                  
-                </section>
-              
-            </section>
-          
-            <section>
-              <h2 class="section-heading">Skills</h2>
-              <ul class="unstyled-list">
-                <li><strong>Programming Languages:</strong> C/C++, Python</li>
-                <li><strong>Web Development:</strong> HTML, CSS, JavaScript</li>
-                <li><strong>Frameworks:</strong> Node.js, Flask, FastAPI</li>
-                <li><strong>Machine Learning &amp; Data Science:</strong> TensorFlow, PyTorch, Scikit-learn</li>
-                <li><strong>Databases:</strong> PostgreSQL, MySQL</li>
-                <li><strong>Tools &amp; Platforms:</strong> Git (Version Control), Docker, Postman, VS Code, PyCharm</li>
-              </ul>
-            </section>
 
-            <section>
-              <h2 class="section-heading">Interests</h2>
-              
-                <section>
-                  <h3>Photography</h3>
-                  <p>I am deeply interested in photography and capturing the beauty of the world through my lens.</p>
-                  
-                </section>
-              
-                <section>
-                  <h3>Competitive Programming</h3>
-                  <p>Regularly participate in LeetCode, Codeforces, and CodeChef contests to sharpen problem-solving skills.</p>
-                  
-                </section>
-              
-            </section>
-          
+            <div class="sidebar-section">
+                <h2>Education</h2>
+
+                <div class="sidebar-item">
+                    <h4>IIT (ISM) Dhanbad <span class="badge">9.07 CGPA</span></h4>
+                    <div class="meta">B.Tech — Electronics &amp; Communication Eng.</div>
+                    <p>July 2024 – May 2028 · Dhanbad, Jharkhand</p>
+                </div>
+
+                <div class="sidebar-item">
+                    <h4>SR DAV Public School, Pundag <span class="badge">97.4%</span></h4>
+                    <div class="meta">Class XII — CBSE</div>
+                    <p>Completed 2024 · Ranchi, Jharkhand</p>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>Achievements</h2>
+
+                <div class="sidebar-item">
+                    <h4>1st Place — HackFest <span class="badge-gold badge">1300+ teams</span></h4>
+                    <div class="meta">IIT (ISM) Dhanbad · GoFloww Atom Mail Challenge</div>
+                    <p>Built <a href="https://github.com/Nishchal-29/SmartMail" target="_blank" rel="noopener">SmartMail</a>, an intelligent email management system</p>
+                </div>
+
+                <div class="sidebar-item">
+                    <h4>1st Rank — Spectrum Fest (×2) <span class="badge-gold badge">500+ participants</span></h4>
+                    <div class="meta">IIT (ISM) Dhanbad · Code Arena CP &amp; Cognitronix AI/ML</div>
+                    <p>Won both the CP contest and AI/ML hackathon; built an <a href="https://github.com/Nishchal-29/signal-denoising" target="_blank" rel="noopener">ECG denoising pipeline</a> (sparse dictionary learning + CNN-LISTA)</p>
+                </div>
+
+                <div class="sidebar-item">
+                    <h4>Techathon Finalist <span class="badge">2800+ teams</span></h4>
+                    <div class="meta">BIT Mesra</div>
+                    <p>Reached finals with <a href="https://github.com/Nishchal-29/TextIntel" target="_blank" rel="noopener">TextIntel</p>
+                </div>
+
+                <div class="sidebar-item">
+                    <h4>Competitive Programming</h4>
+                    <div class="meta">
+                        CF Specialist · LC Knight · CC 3-Star
+                    </div>
+                    <p>Peak ratings: <strong>CF 1491</strong> · <strong>LC 1909</strong>. Solved <strong>1500+ problems</strong> across <strong>120+ contests</strong>. <a href="https://codolio.com/profile/nishchal_29" target="_blank" rel="noopener">View Profile ↗</a></p>
+                </div>
+
+                <div class="sidebar-item">
+                    <h4>Open Source Contributor</h4>
+                    <div class="meta">GSSoC &amp; Hacktoberfest</div>
+                    <p>Merged 5+ PRs: Azure DALL-E 3 integration in <a href="https://github.com/mlsanigeria/naija-nutri-hub" target="_blank" rel="noopener">naija-nutri-hub</a>, CNN architecture for <a href="https://github.com/PRIYANSHU2026/DataSentience-AIML" target="_blank" rel="noopener">DataSentience</a>, and web scrapers.</p>
+                </div>
+            </div>
+
         </aside>
-      </div>
+
     </div>
 
-    <footer class="page-footer">
-      <div class="container">
-        <p>© 2025 Nishchal Kumar Singh. All rights reserved.</p>
-      </div>
+    <footer>
+        <div class="container">
+            <p>© 2026 Nishchal Kumar Singh</p>
+        </div>
     </footer>
 
-    <script src="js/app.js"></script>
-  </body>
+</body>
 </html>
